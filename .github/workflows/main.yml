@@ -16,6 +16,8 @@ jobs:
       - env:
           OUTPUT1: ${{needs.call-workflow-passing-data.outputs.output1}}
         run: echo $OUTPUT1
+      - name: Get the output time
+        run: echo `id`
         
 #   job2:
 #     runs-on: self-hosted

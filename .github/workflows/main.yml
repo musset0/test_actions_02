@@ -1,0 +1,30 @@
+on: [push]
+
+jobs:
+  call-workflow-passing-data:
+    name: called workflow
+    uses: dreamli0/test_actions_02/.github/workflows/resuable_workflow_job_public.yml@main
+    with:
+      who-to-greet: 'musset'
+#       hi-there: ${{ secrets.token }}
+    secrets: inherit
+  
+  job2:
+    runs-on: self-hosted
+    needs: call-workflow-passing-data
+    steps:
+      - env:
+          OUTPUT1: ${{needs.call-workflow-passing-data.outputs.output1}}
+        run: echo $OUTPUT1
+        
+#   job2:
+#     runs-on: self-hosted
+#     needs: call-workflow-passing-data
+#     steps:
+#       - name: dreamli action step
+#         id: hello
+#         uses: dreamli0/my-action@main
+#         with:
+#           hi-there: ${{ secrets.AWS }}
+#       - name: Get the output time
+#         run: echo "The Greeting time was ${{ needs.call-workflow-passing-data.outputs.output1 }}"

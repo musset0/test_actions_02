@@ -7,9 +7,9 @@ jobs:
     with:
       who-to-greet: 'musset'
 #       hi-there: ${{ secrets.token }}
-    secrets: 
-      AWS: ${{secrets.AWS}}
-      AZURE: ${{ secrets.AZURE }}
+    secrets: inherit
+#       AWS: ${{secrets.AWS}}
+#       AZURE: ${{ secrets.AZURE }}
   
 #   job2:
 #     runs-on: ubuntu-latest

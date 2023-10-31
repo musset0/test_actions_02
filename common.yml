@@ -1,0 +1,12 @@
+parameters:
+- name: 'hello'
+  default: 'temp'
+  type: string
+
+jobs:
+  pool:
+    name: Default
+
+  steps:
+  - bash: |
+    echo 'hello, temp_musset0'

@@ -2,6 +2,9 @@ parameters:
 - name: 'vmImage'
   default: 'Default'
   type: string
+- name: 'samplestring'
+  default: 'Hello'
+  type: string
 
 jobs:
 - job: Build
@@ -13,5 +16,5 @@ jobs:
       echo $(ui_variable)
       
   - task: greetTask@1
-      # inputs:
-      #   samplestring: 'public'
+      inputs:
+        samplestring: ${{ parameters.vmImage }}

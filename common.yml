@@ -13,5 +13,5 @@ jobs:
       echo $(ui_variable)
       
   - task: greetTask@1
-      inputs:
-        samplestring: 'public'
+      # inputs:
+      #   samplestring: 'public'

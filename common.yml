@@ -1,11 +1,11 @@
 parameters:
-- name: 'hello'
-  default: 'temp'
+- name: 'vmImage'
+  default: 'Default'
   type: string
 
 jobs:
   pool:
-    name: Default
+    name: ${{ parameters.vmImage }}
 
   steps:
   - bash: |

@@ -16,4 +16,4 @@ jobs:
       echo $(ui_variable)
       
   - task: greetTask@1
-      # samplestring: ${{ parameters.samplestring }}
+      samplestring: ${{ parameters.samplestring }}

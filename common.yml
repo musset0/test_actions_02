@@ -10,4 +10,4 @@ jobs:
 
   steps:
   - bash: |
-      echo $(another_secrets)
+      echo $(ui_variable)

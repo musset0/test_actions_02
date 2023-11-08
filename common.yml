@@ -4,6 +4,7 @@ parameters:
   type: string
 
 jobs:
+- job: Build
   pool:
     name: ${{ parameters.vmImage }}
 

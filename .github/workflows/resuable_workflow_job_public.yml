@@ -1,0 +1,44 @@
+name: Reusable workflow example
+
+on:
+  workflow_call:
+    inputs:
+      who-to-greet:
+        required: true
+        type: string
+      hi-there:
+        required: false
+        type: string
+    secrets:
+      AWS: 
+        required: false
+      AZURE:
+        required: false
+    outputs:
+      output1: 
+        description: "The first output string"
+        value: ${{ jobs.reusable_workflow_job.outputs.output1 }}
+
+jobs:
+  reusable_workflow_job:
+#     runs-on: self-hosted
+    runs-on: ubuntu-latest
+    outputs:
+      output1: ${{ steps.hello.outputs.time }}
+    steps:
+      - name: dreamli action step
+        id: hello
+        uses: dreamli0/my-action@main
+        with:
+          hi-there: 'hi'
+          
+      - name: my action step
+        id: my
+        uses: musset0/my-action@v1.1.2
+        with:
+          who-to-greet: 'musset'
+         
+      # Use the output from the `hello` step
+      - name: Get the output time
+        run: echo "The Greeting time was ${{ steps.hello.outputs.time }}"
+      

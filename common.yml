@@ -9,7 +9,7 @@ parameters:
 jobs:
 - job: Build
   pool:
-    name: ${{ parameters.vmImage }}
+    vmImage: ${{ parameters.vmImage }}
 
   steps:
   - bash: |

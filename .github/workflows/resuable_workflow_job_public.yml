@@ -26,19 +26,19 @@ jobs:
     outputs:
       output1: ${{ steps.hello.outputs.time }}
     steps:
-      - name: dreamli action step
-        id: hello
-        uses: dreamli0/my-action@main
-        with:
-          hi-there: 'hi'
+      # - name: dreamli action step
+      #   id: hello
+      #   uses: dreamli0/my-action@main
+      #   with:
+      #     hi-there: 'hi'
           
-      - name: my action step
-        id: my
-        uses: musset0/my-action@v1.1.2
-        with:
-          who-to-greet: 'musset'
+      # - name: my action step
+      #   id: my
+      #   uses: musset0/my-action@v1.1.2
+      #   with:
+      #     who-to-greet: 'musset'
          
       # Use the output from the `hello` step
       - name: Get the output time
-        run: echo "The Greeting time was ${{ steps.hello.outputs.time }}"
+        run: echo "this is the tag v1.2.3"
       

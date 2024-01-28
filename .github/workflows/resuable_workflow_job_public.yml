@@ -40,5 +40,5 @@ jobs:
          
       # Use the output from the `hello` step
       - name: Get the output time
-        run: echo "this is the branch v1.2.3"
+        run: echo "this is the main"
       
